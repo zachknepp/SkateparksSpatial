@@ -40,8 +40,13 @@ try(write.csv(txskatecensus,"C:/Users/zachk/Desktop/Econ Senior Project/Texas/tx
 #deadlycensus = merge(x = txskatecensus, y = de, by = "FIPS")
 #write.csv(deadlycensus,"C:/Users/zachk/Desktop/Econ Senior Project/Texas/TXtoMap.csv", row.names = FALSE)
 
+library(housingData)
+data(geoCounty)
+geoCounty <- rename(geoCounty, FIPS = fips)
+
+master <- merge(x = df, y = geoCounty, by = "FIPS")
+
 #Maps and stuff
 #First, we need a shapefile
 
 
-df <- txskatecensus
