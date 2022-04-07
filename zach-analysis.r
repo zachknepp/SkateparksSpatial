@@ -2,70 +2,100 @@
 #http://www.econ.uiuc.edu/~lab/workshop/Spatial_in_R.html
 #https://spatial.burkeyacademy.com/
 
+#Analysis
 
-rm(list=ls())
+#To do list
+#############################
+#For each county, calculate (approx) distance to nearest skatepark, dist to nearest 
+#############################
+##loading packages
+##################
 library(stargazer)
 library(lfe)
 #library(stringr)
 #library(data.table)
 #library(texreg)
-#library(tidyverse)
+library(tidyverse)
 library(spData)
-library(spdep)
 library(spatialreg)
 library(rgdal)
 library(rgeos)
 library(housingData)
-####geoData
-data(geoCounty)
+library(ISLR)
+library(gpairs) #makes a nice lil visualizations for correlations
+####################
+
+
+
+data(geoCounty) #Only has data for 3075 FIPS codes, skate master has 3230. Wuddup fool?
 geoCounty<-rename(geoCounty, FIPS = fips)
 geoCounty$FIPS<-as.integer(as.character(geoCounty$FIPS))
-
-#### Here I am setting workspaces
-try(setwd("D:\\Dropbox\\Teaching\\ECO499\\Zach Knepper"))
-try(setwd("C:\\Users\\zachk\\Desktop\\Econ Senior Project\\Texas"))
-
-df<- read.csv(".\\miniskatemaster.csv", header = TRUE)
-###PUll hisp from AHRF later
-df$perchisp.10 <- 100 - df$percwhite.10 - df$percblack.10 - df$percamind.10 - df$percasian.10 - df$percpi.10
-df$impoverishedpc <- df$personsimpoverished/df$pop
-
-spatdf <- merge(x = df, y = geoCounty) 
-na.omit(spatdf, cols=c("lon", "lat"))
-attach(spatdf)
-
-stargazer(spatdf, type='text')
+setwd("C:/Users/zachk/Desktop/Econ Senior Project/Full Model/")
 
 
 
-#############################Simple Linear Modeling###############################
-lm1 <- lm(er.visits ~ skateparks, data = spatdf)
-lm2 <- lm(er.visits ~ skateparks + pop + medage.10 + percwhite.10 + percblack.10 + perchisp.10 + percasian.10 
-          + medhhincome + impoverishedpc + singleparenthouseholds.10 
-          + perclessthanhs.15 + percwithhsormore.15 + fouryearscollege.15, data = spatdf)
+skatemaster=read.csv("skatemaster.csv", header=TRUE)
+msm = read.csv("miniskatemaster.csv", header=TRUE) #Skate master, but with columns X, state and state.abb removed
 
-###Skateparks as x
-lm.parksuicide <- lm(suicides.17.19~skateparks, data = spatdf)
-summary(lm.parksuicide)
+#Correlations w/ pairs plot
+trial <- msm[,-c(1, 8:13, 17, 19:25,32, 35)]
+#Removing FIPS, races, days spent in care, and high school or more (redundant, treat as base case)
+na.omit(trial)
+suppressWarnings(corrgram(trial))
+########################CURRENT STICKING POINT! MERGING OUR DATA REMOVES A BUNCH OF IT
+  #Adding county centroids CU
+spskatemaster <- merge(x=skatemaster, y = geoCounty, all.x=TRUE, all.y=TRUE)
+mspskatemaster <- merge(x = msm, y = geoCounty) 
+###########stagazer()
+na.omit(mspskatemaster, cols=c("lon","lat"))
+attach(mspskatemaster)
+#We need to account for suicides/mental health outcomes in counties without access to those things!
+  #If no psych hospitals, give em 
+  
+##
+coords <- cbind(mspskatemaster$lon, mspskatemaster$lat)
+#Simple Modeling
+####################
+#Suicides is a rate: no of deaths due to suicide per 100000 pop,
+#https://www.cdc.gov/nchs/pressroom/sosmap/suicide-mortality/suicide.htm  should give us data to interpolate rates (if we want)
 
-lm.degenskaters<- lm(popjuvy.10 ~ skateparks, data=spatdf)
+#Skateparks as x
+lm.parksuicide <- lm(suicides.17.19~skateparks, data = mspskatemaster)
+stargazer(lm.parksuicide)
+
+lm.degenskaters<- lm(popjuvy.10 ~ skateparks, data=mspskatemaster)
 summary(lm.degenskaters)
 
-lm(skateparks ~ pop, data = spatdf)
+lm.dumbskaters<-lm(perclessthanhs.15 ~ skateparks, data=mspskatemaster)
 
-lm(suicides.17.19~pop.10, data = spatdf)
-lm(suicides.17.19~pop, data = spatdf)
-lm(psych.lt~pop, data = spatdf)
+stargazer(lm.parksuicide, lm.degenskaters, lm.dumbskaters, 'text')
+#############
+
+
+#Shows a 58% increase in HS completion rate for each unit of skatepark access
+
+stargazer(lm.pkacc1, lm.pkacc2, lm.pkacc3)
+#############
+#Population as a predictor
+lm(skateparks ~ pop, data = mspskatemaster)
+
+lm(suicides.17.19~pop.10, data = mspskatemaster)
+lm(suicides.17.19~pop, data = mspskatemaster)
+lm(psych.lt~pop, data = mspskatemaster)
 
 #Psych hospital count as predictor
 lm.psychsuicide<-lm(suicides.17.19~psych.st+psych.lt + psych.st*psych.lt, data =mspskatemaster)
-          #Shows that psych hospitals increase the suicide rate of the county. This is evidence of selection bias.
+lm.psychdegen<-lm(popjuvy.10~psych.st+psych.lt + psych.st*psych.lt, data =mspskatemaster)
+lm.psychdrop<-lm(perclessthanhs.15~psych.st+psych.lt + psych.st*psych.lt, data =mspskatemaster)
+stargazer(lm.psychsuicide, lm.psychdegen, lm.psychdrop)
+#Shows that psych hospitals increase the suicide rate of the county. This is evidence of selection bias.
 
 #income as a predictor
 lm.moneyparks <-lm(skateparks~log(medhhincome), data = mspskatemaster)
 summary(lm.moneyparks) #For each pct increase in medhhinc, we get 3.5 more parks. WOW!
 
 lm.moneysuicide = lm(suicides.17.19~ medhhincome, data = mspskatemaster)
+
 
 #Demographics as predictors
 lm(suicides.17.19 ~ percwhite.10 + pop.10, data = mspskatemaster)
@@ -74,6 +104,8 @@ lm(suicides.17.19 ~ percblack.10 + pop.10, data = mspskatemaster)
 lm(suicides.17.19 ~ perchisp.10 + pop.10, data = mspskatemaster)
 lm(suicides.17.19 ~ percamind.10 + pop.10, data = mspskatemaster)
 
+
+
 #Sad stuff as predictors 
 lm.degenpobres<- lm(popjuvy.10 ~ personsimpoverished, data=mspskatemaster)
 summary(lm.degenpobres)
@@ -81,7 +113,11 @@ summary(lm.degenpobres)
 lm.degenparents<-lm(popjuvy.10~singleparenthouseholds.10, data=mspskatemaster)
 summary(lm.degenparents)
 
-############################Graphical summary of models#######################
+#Summary shows that access to additional any type of psychiatric facilities is correlated with HIGHER rates of suicide among the population. 
+#Selection bias needs to be treated! we had to omit 2273 observations due to missingness!
+#After looking through the data, you can see these counties with N/A fo suicides, tend to have zero access to psychiatric care. 
+ 
+#Graphical summary of models
 bestfit <- geom_smooth(
   method = "lm", 
   se = FALSE, 
@@ -98,22 +134,41 @@ geom_lm <- function(formula = y ~ x, colour = alpha("steelblue", 0.5),
 ggplot(mspskatemaster, aes(skateparks,impoverishedpc)) + geom_point() + 
   scale_x_continuous(trans='log2') + bestfit
 
-################################Spatial stuff#################################
+#Spatial Modeling
+#############
+#Spatial Weights
+  #5NN
+    fivenn <- knearneigh(coords, k=5, longlat = TRUE)
+    fivenn.nb <- knn2nb(fivenn)
+    #W<-nb2listw(fivenn.nb, style="W", zero.policy=TRUE)
+  #10NN
+    tennn <- knearneigh(coords, k=10, longlat=TRUE)
+    tennn.nb <- knn2nb(tennn)
+  #Actual weights  
+  W<-nb2listw(fivenn.nb, style = "W", zero.policy = TRUE)
+moran.parksuicide <- lm.morantest(lm.parksuicide, W, alternative = "two.sided")
+moran.lm2 <- lm.morantest(lm2, W, alternative = "two.sided")
+moran.moneyparks<-lm.morantest(lm.moneyparks, W, alternative = "two.sided")
+  #Seeing what kind of models we should use
+LM1 <-lm.LMtests(lm1, W, test = "all")
+LM2 <-lm.LMtests(lm2, W, test = "all")
+lm.LMtests(lm.moneyparks, W, test="all")
 
-coords <- cbind(spatdf$lon, spatdf$lat)
-fivenn <- knearneigh(coords, k=5, longlat = TRUE)
-fivenn.nb <- knn2nb(fivenn)
-W<-nb2listw(fivenn.nb, style="W", zero.policy=TRUE)
+#Train spatial models and time em
+ptm <- proc.time()
+sar1<-lagsarlm(suicides.17.19~psych.st+psych.lt+ psych.st*psych.lt ,data = mspskatemaster, W)
+proc.time() - ptm
 
-moran.lm <- lm.morantest(lm1, W, alternative="two.sided")
+ptm <- proc.time()
+sar2 <- lagsarlm(lm.poorsuicide, data = df, W)
+proc.time() - ptm
 
-LM<-lm.LMtests(lm1, W, test="all")
+summary(sar1)
+impacts(sar1, listw = W)
+summary(impacts(sar1, listw=W, R=500),zstats=TRUE)\
 
-sar<-lagsarlm(lm1, data = df, W)
-summary(sar)
-#impacts(sar, listw = W)
-summary(impacts(sar, listw=W, R=500),zstats=TRUE)
-
-#McMillen's Spatial Selection Model
+#McMillen's Spatial Selection Model ()
+###########################
 #y1i will be suicides, predicted by skateparks, singleparent, medhhinc, pop, 
 #y2i will be psych care centers (need to create an effective measure), predicted by skateparks, singleparent, medhhinc, pop, 
+ 
