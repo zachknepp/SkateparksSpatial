@@ -15,30 +15,42 @@ library(spdep)
 library(ggmap)
 data(geoCounty)
 setwd("C:/Users/zachk/Desktop/Econ Senior Project/Full Model")
-
-#Importing shapefile
+##############################
+#Loading files
 dirlink <- "C:/Users/zachk/Desktop/Econ Senior Project/Full Model/CountyShapeFile/cb_2020_us_county_5m.zip"
 filename <- basename(dirlink)
 unzip(filename, exdir = "C:/Users/zachk/Desktop/Econ Senior Project/Full Model/CountyShapeFile" )
 shapefile <- st_read(dsn = "C:/Users/zachk/Desktop/Econ Senior Project/Full Model/CountyShapeFile/2020USCounty", layer = tools::file_path_sans_ext(filename))
 colnames(shapefile)[5]<-"FIPS"
 shapefile$FIPS<-as.integer(shapefile$FIPS)
-
 msm = read.csv("miniskatemaster", header=TRUE)
 
-#joining em
+###########################
+#Construction of Joint Shapefile
 jointshape <- merge(shapefile , msm, by = "FIPS" , all.x=TRUE)
 
-
-#ggplot way
+#################################
+#"Cartography"
 ggplot(jointshape) + xlim(125, 67) + ylim(24,50) +
   geom_sf(aes(fill = skateparks)) +  
-  scale_fill_viridis_c(option ="B") + 
-  labs(fill = "Number of skatparks") + theme(legend.position = "top")
+  scale_fill_gradient(low="blue", high="red") + 
+  labs(fill = "Number of skateparks") + theme(legend.position = "top")
   #Beautiful
 
 ggplot(jointshape) + xlim(125, 67) + ylim(24,50) +
     geom_sf(aes(fill = impoverishedpc)) + 
-    scale_fill_viridis_c(option = "D")+ labs(fill = "Percentage of persons living in poverty") +
+  scale_fill_gradient(low="green", high="red") + labs(fill = "Percentage of persons living in poverty") +
     theme(legend.position="top")
 
+ggplot(jointshape) + xlim(125, 67) + ylim(24,50) +
+  geom_sf(aes(fill = suicides.17.19)) + 
+  scale_fill_gradient(low="red", high="black") + labs(fill = "Deaths by suicide per capita from 2017-2019") +
+  theme(legend.position="top")
+
+################################
+#Goofin with spatial stuff: neighbors based on actual contiguity
+#"W" implies row normalized matrix
+neigh<-poly2nb(jointshape)
+W=nb2listw(neigh, style = "W", zero.policy = TRUE)
+  
+  
