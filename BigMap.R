@@ -50,7 +50,7 @@ ggplot(jointshape) + xlim(125, 67) + ylim(24,50) +
 ################################
 #Goofin with spatial stuff: neighbors based on actual contiguity
 #"W" implies row normalized matrix
-neigh<-dnearneigh(jointshape)
+neigh<-poly2nb(jointshape)
 neighs<-poly2nb(jointshape[which (jointshape$suicides.17.19 > 0),])
 W=nb2listw(neigh, style = "W", zero.policy = TRUE)
 Ws = nb2listw(neighs, style = "W", zero.policy = TRUE)
