@@ -1,0 +1,456 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Apr 12, 2022 - 10:41:25 AM
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{suicides.17.19} \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ skateparks & 11.465$^{***}$ &  & 1.884$^{***}$ \\ 
+  & (0.271) &  & (0.240) \\ 
+  psych.st &  & 46.790$^{***}$ & 4.371$^{***}$ \\ 
+  &  & (1.549) & (0.922) \\ 
+  psych.lt &  & 24.420$^{***}$ & 2.146 \\ 
+  &  & (4.227) & (1.749) \\ 
+  impoverishedpc &  &  & $-$117.317$^{***}$ \\ 
+  &  &  & (29.785) \\ 
+  rehab.st &  &  & 7.878$^{***}$ \\ 
+  &  &  & (1.079) \\ 
+  genhosp.lt &  &  & $-$0.494 \\ 
+  &  &  & (6.076) \\ 
+  rehab.lt &  &  & 61.415$^{***}$ \\ 
+  &  &  & (8.722) \\ 
+  er.visits &  &  & 0.00002$^{*}$ \\ 
+  &  &  & (0.00001) \\ 
+  pop &  &  & 0.0001$^{***}$ \\ 
+  &  &  & (0.00001) \\ 
+  medage.10 &  &  & 0.472$^{***}$ \\ 
+  &  &  & (0.154) \\ 
+  percurban.10 &  &  & 0.199$^{***}$ \\ 
+  &  &  & (0.037) \\ 
+  medhhincome &  &  & $-$0.001$^{***}$ \\ 
+  &  &  & (0.0001) \\ 
+  personsimpoverished &  &  & $-$0.0001$^{*}$ \\ 
+  &  &  & (0.0001) \\ 
+  percwhite.10 &  &  & $-$0.135 \\ 
+  &  &  & (0.125) \\ 
+  percblack.10 &  &  & $-$0.212 \\ 
+  &  &  & (0.129) \\ 
+  perchisp.10 &  &  & $-$0.039 \\ 
+  &  &  & (0.201) \\ 
+  households.10 &  &  & 0.00002 \\ 
+  &  &  & (0.00004) \\ 
+  singleparenthouseholds.10 &  &  & $-$0.0004 \\ 
+  &  &  & (0.0003) \\ 
+  fouryearscollege.15 &  &  & $-$0.055 \\ 
+  &  &  & (0.094) \\ 
+  Constant & 13.728$^{***}$ & 20.285$^{***}$ & 40.230$^{**}$ \\ 
+  & (1.368) & (1.558) & (18.000) \\ 
+ \hline \\[-1.8ex] 
+Observations & 940 & 940 & 940 \\ 
+R$^{2}$ & 0.656 & 0.535 & 0.929 \\ 
+Adjusted R$^{2}$ & 0.656 & 0.534 & 0.927 \\ 
+Residual Std. Error & 36.569 (df = 938) & 42.530 (df = 937) & 16.828 (df = 920) \\ 
+F Statistic & 1,789.767$^{***}$ (df = 1; 938) & 539.859$^{***}$ (df = 2; 937) & 629.579$^{***}$ (df = 19; 920) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Apr 12, 2022 - 10:41:25 AM
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{popjuvy.10} \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ skateparks & 38.649$^{***}$ &  & 4.382$^{***}$ \\ 
+  & (0.850) &  & (1.339) \\ 
+  psych.st &  & 140.248$^{***}$ & $-$14.153$^{**}$ \\ 
+  &  & (4.664) & (5.500) \\ 
+  psych.lt &  & 129.189$^{***}$ & 36.413$^{***}$ \\ 
+  &  & (11.903) & (9.666) \\ 
+  impoverishedpc &  &  & $-$51.942 \\ 
+  &  &  & (79.456) \\ 
+  rehab.st &  &  & $-$7.958 \\ 
+  &  &  & (6.573) \\ 
+  genhosp.lt &  &  & 20.811 \\ 
+  &  &  & (23.590) \\ 
+  rehab.lt &  &  & 11.067 \\ 
+  &  &  & (55.190) \\ 
+  er.visits &  &  & $-$0.0001$^{*}$ \\ 
+  &  &  & (0.0001) \\ 
+  pop &  &  & 0.0001$^{*}$ \\ 
+  &  &  & (0.0001) \\ 
+  medage.10 &  &  & $-$0.131 \\ 
+  &  &  & (0.516) \\ 
+  percurban.10 &  &  & 0.189$^{**}$ \\ 
+  &  &  & (0.092) \\ 
+  medhhincome &  &  & $-$0.0004 \\ 
+  &  &  & (0.0003) \\ 
+  personsimpoverished &  &  & $-$0.0002 \\ 
+  &  &  & (0.0004) \\ 
+  percwhite.10 &  &  & 0.037 \\ 
+  &  &  & (0.336) \\ 
+  percblack.10 &  &  & 0.236 \\ 
+  &  &  & (0.327) \\ 
+  perchisp.10 &  &  & 0.250 \\ 
+  &  &  & (0.575) \\ 
+  households.10 &  &  & 0.001$^{***}$ \\ 
+  &  &  & (0.0002) \\ 
+  singleparenthouseholds.10 &  &  & 0.001 \\ 
+  &  &  & (0.001) \\ 
+  fouryearscollege.15 &  &  & 0.295 \\ 
+  &  &  & (0.330) \\ 
+  Constant & 7.237$^{***}$ & 23.735$^{***}$ & 22.617 \\ 
+  & (2.460) & (2.587) & (51.482) \\ 
+ \hline \\[-1.8ex] 
+Observations & 3,074 & 3,074 & 3,074 \\ 
+R$^{2}$ & 0.402 & 0.294 & 0.576 \\ 
+Adjusted R$^{2}$ & 0.402 & 0.293 & 0.574 \\ 
+Residual Std. Error & 126.672 (df = 3072) & 137.705 (df = 3071) & 106.938 (df = 3054) \\ 
+F Statistic & 2,065.861$^{***}$ (df = 1; 3072) & 638.281$^{***}$ (df = 2; 3071) & 218.687$^{***}$ (df = 19; 3054) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{perclessthanhs.15} \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ skateparks & $-$0.253$^{***}$ &  & $-$0.244$^{***}$ \\ 
+  & (0.042) &  & (0.044) \\ 
+  psych.st &  & $-$0.586$^{***}$ & $-$0.216 \\ 
+  &  & (0.212) & (0.180) \\ 
+  psych.lt &  & $-$1.475$^{***}$ & $-$0.047 \\ 
+  &  & (0.541) & (0.316) \\ 
+  impoverishedpc &  &  & 65.954$^{***}$ \\ 
+  &  &  & (2.593) \\ 
+  rehab.st &  &  & 0.167 \\ 
+  &  &  & (0.215) \\ 
+  genhosp.lt &  &  & $-$0.209 \\ 
+  &  &  & (0.770) \\ 
+  rehab.lt &  &  & $-$1.674 \\ 
+  &  &  & (1.801) \\ 
+  popjuvy.10 &  &  & $-$0.001 \\ 
+  &  &  & (0.001) \\ 
+  er.visits &  &  & $-$0.00000 \\ 
+  &  &  & (0.00000) \\ 
+  pop &  &  & 0.00000$^{*}$ \\ 
+  &  &  & (0.00000) \\ 
+  medage.10 &  &  & $-$0.181$^{***}$ \\ 
+  &  &  & (0.017) \\ 
+  percurban.10 &  &  & $-$0.021$^{***}$ \\ 
+  &  &  & (0.003) \\ 
+  medhhincome &  &  & 0.0001$^{***}$ \\ 
+  &  &  & (0.00001) \\ 
+  personsimpoverished &  &  & $-$0.00000 \\ 
+  &  &  & (0.00001) \\ 
+  percwhite.10 &  &  & 0.168$^{***}$ \\ 
+  &  &  & (0.011) \\ 
+  percblack.10 &  &  & 0.189$^{***}$ \\ 
+  &  &  & (0.011) \\ 
+  perchisp.10 &  &  & 0.605$^{***}$ \\ 
+  &  &  & (0.019) \\ 
+  households.10 &  &  & 0.00002$^{***}$ \\ 
+  &  &  & (0.00001) \\ 
+  singleparenthouseholds.10 &  &  & $-$0.0002$^{***}$ \\ 
+  &  &  & (0.00005) \\ 
+  fouryearscollege.15 &  &  & $-$0.329$^{***}$ \\ 
+  &  &  & (0.011) \\ 
+  Constant & 13.362$^{***}$ & 13.239$^{***}$ & $-$5.487$^{***}$ \\ 
+  & (0.121) & (0.118) & (1.680) \\ 
+ \hline \\[-1.8ex] 
+Observations & 3,074 & 3,074 & 3,074 \\ 
+Adjusted R$^{2}$ & 0.011 & 0.006 & 0.691 \\ 
+Residual Std. Error & 6.239 (df = 3072) & 6.256 (df = 3071) & 3.490 (df = 3053) \\ 
+F Statistic & 36.353$^{***}$ (df = 1; 3072) & 10.189$^{***}$ (df = 2; 3071) & 344.168$^{***}$ (df = 20; 3053) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+> moran.controlsuicide
+
+	Global Moran I for regression residuals
+
+data:  
+model: lm(formula = suicides.17.19 ~ skateparks + psych.st + psych.lt + impoverishedpc + rehab.st +
+genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome + personsimpoverished +
+percwhite.10 + percblack.10 + perchisp.10 + households.10 + singleparenthouseholds.10 +
+fouryearscollege.15, data = mspskatemaster[which(mspskatemaster$suicides.17.19 > 0), ])
+weights: Ws
+
+Moran I statistic standard deviate = 8.7714, p-value < 2.2e-16
+alternative hypothesis: two.sided
+sample estimates:
+Observed Moran I      Expectation         Variance 
+    0.1620616953    -0.0058162595     0.0003663071 
+
+> moran.controldegen
+
+	Global Moran I for regression residuals
+
+data:  
+model: lm(formula = popjuvy.10 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt + impoverishedpc +
+rehab.st + genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome +
+personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 + households.10 +
+singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+Moran I statistic standard deviate = 3.419, p-value = 0.0006285
+alternative hypothesis: two.sided
+sample estimates:
+Observed Moran I      Expectation         Variance 
+    0.0356910914    -0.0019012094     0.0001208925 
+
+> moran.alldrop
+
+	Global Moran I for regression residuals
+
+data:  
+model: lm(formula = perclessthanhs.15 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt +
+impoverishedpc + rehab.st + genhosp.lt + rehab.lt + popjuvy.10 + er.visits + pop + medage.10 +
+percurban.10 + medhhincome + personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 +
+households.10 + singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+Moran I statistic standard deviate = 30.862, p-value < 2.2e-16
+alternative hypothesis: two.sided
+sample estimates:
+Observed Moran I      Expectation         Variance 
+    0.3374091162    -0.0019135267     0.0001208837 
+
+> LM1
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = suicides.17.19 ~ skateparks + psych.st + psych.lt + impoverishedpc + rehab.st +
+genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome + personsimpoverished +
+percwhite.10 + percblack.10 + perchisp.10 + households.10 + singleparenthouseholds.10 +
+fouryearscollege.15, data = mspskatemaster[which(mspskatemaster$suicides.17.19 > 0), ])
+weights: Ws
+
+LMerr = 69.382, df = 1, p-value < 2.2e-16
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = suicides.17.19 ~ skateparks + psych.st + psych.lt + impoverishedpc + rehab.st +
+genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome + personsimpoverished +
+percwhite.10 + percblack.10 + perchisp.10 + households.10 + singleparenthouseholds.10 +
+fouryearscollege.15, data = mspskatemaster[which(mspskatemaster$suicides.17.19 > 0), ])
+weights: Ws
+
+LMlag = 13.34, df = 1, p-value = 0.0002598
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = suicides.17.19 ~ skateparks + psych.st + psych.lt + impoverishedpc + rehab.st +
+genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome + personsimpoverished +
+percwhite.10 + percblack.10 + perchisp.10 + households.10 + singleparenthouseholds.10 +
+fouryearscollege.15, data = mspskatemaster[which(mspskatemaster$suicides.17.19 > 0), ])
+weights: Ws
+
+RLMerr = 57.285, df = 1, p-value = 3.775e-14
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = suicides.17.19 ~ skateparks + psych.st + psych.lt + impoverishedpc + rehab.st +
+genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome + personsimpoverished +
+percwhite.10 + percblack.10 + perchisp.10 + households.10 + singleparenthouseholds.10 +
+fouryearscollege.15, data = mspskatemaster[which(mspskatemaster$suicides.17.19 > 0), ])
+weights: Ws
+
+RLMlag = 1.2429, df = 1, p-value = 0.2649
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = suicides.17.19 ~ skateparks + psych.st + psych.lt + impoverishedpc + rehab.st +
+genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome + personsimpoverished +
+percwhite.10 + percblack.10 + perchisp.10 + households.10 + singleparenthouseholds.10 +
+fouryearscollege.15, data = mspskatemaster[which(mspskatemaster$suicides.17.19 > 0), ])
+weights: Ws
+
+SARMA = 70.625, df = 2, p-value = 4.441e-16
+
+> LM2
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = popjuvy.10 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt + impoverishedpc +
+rehab.st + genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome +
+personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 + households.10 +
+singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+LMerr = 10.443, df = 1, p-value = 0.001231
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = popjuvy.10 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt + impoverishedpc +
+rehab.st + genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome +
+personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 + households.10 +
+singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+LMlag = 19.831, df = 1, p-value = 8.462e-06
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = popjuvy.10 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt + impoverishedpc +
+rehab.st + genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome +
+personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 + households.10 +
+singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+RLMerr = 0.0054677, df = 1, p-value = 0.9411
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = popjuvy.10 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt + impoverishedpc +
+rehab.st + genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome +
+personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 + households.10 +
+singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+RLMlag = 9.3928, df = 1, p-value = 0.002178
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = popjuvy.10 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt + impoverishedpc +
+rehab.st + genhosp.lt + rehab.lt + er.visits + pop + medage.10 + percurban.10 + medhhincome +
+personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 + households.10 +
+singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+SARMA = 19.836, df = 2, p-value = 4.928e-05
+
+> LM3
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = perclessthanhs.15 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt +
+impoverishedpc + rehab.st + genhosp.lt + rehab.lt + popjuvy.10 + er.visits + pop + medage.10 +
+percurban.10 + medhhincome + personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 +
+households.10 + singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+LMerr = 933.31, df = 1, p-value < 2.2e-16
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = perclessthanhs.15 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt +
+impoverishedpc + rehab.st + genhosp.lt + rehab.lt + popjuvy.10 + er.visits + pop + medage.10 +
+percurban.10 + medhhincome + personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 +
+households.10 + singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+LMlag = 701.03, df = 1, p-value < 2.2e-16
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = perclessthanhs.15 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt +
+impoverishedpc + rehab.st + genhosp.lt + rehab.lt + popjuvy.10 + er.visits + pop + medage.10 +
+percurban.10 + medhhincome + personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 +
+households.10 + singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+RLMerr = 319.43, df = 1, p-value < 2.2e-16
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = perclessthanhs.15 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt +
+impoverishedpc + rehab.st + genhosp.lt + rehab.lt + popjuvy.10 + er.visits + pop + medage.10 +
+percurban.10 + medhhincome + personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 +
+households.10 + singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+RLMlag = 87.14, df = 1, p-value < 2.2e-16
+
+
+	Lagrange multiplier diagnostics for spatial dependence
+
+data:  
+model: lm(formula = perclessthanhs.15 ~ skateparks + psych.st + psych.lt + psych.st * psych.lt +
+impoverishedpc + rehab.st + genhosp.lt + rehab.lt + popjuvy.10 + er.visits + pop + medage.10 +
+percurban.10 + medhhincome + personsimpoverished + percwhite.10 + percblack.10 + perchisp.10 +
+households.10 + singleparenthouseholds.10 + fouryearscollege.15, data = mspskatemaster)
+weights: W
+
+SARMA = 1020.5, df = 2, p-value < 2.2e-16
+
+
+
+
