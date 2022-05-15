@@ -61,17 +61,17 @@ lm.controlsuicide<-lm(suicides.17.19~. , data = trial)
 stargazer(lm.parksuicide, lm.psychsuicide, lm.controlsuicide, no.space=TRUE)
 
 
-#Juvenile Detention
+#Juvenile Detention 
 lm.degenskaters<- lm(popjuvy.10 ~ skateparks, data=trial)
 lm.psychdegen<-lm(popjuvy.10~psych.st+psych.lt + psych.st*psych.lt, data=trial)
 lm.controlsuicide<-lm(popjuvy.10~., data= trial)
 stargazer(lm.degenskaters, lm.psychdegen, lm.controlsuicide, no.space = TRUE)
 
-#Dropout rate
-lm.dumbskaters<-lm(perclessthanhs.15 ~ skateparks, data=trial)
-lm.psychdrop<-lm(perclessthanhs.15~psych.st+psych.lt + psych.st*psych.lt, data =trial)
-lm.alldrop<- lm(perclessthanhs.15~., data = trial)
-stargazer(lm.dumbskaters, lm.psychdrop, lm.alldrop, no.space = TRUE)
+#Dropout rate #REDOING WITH LOGISTICS
+logm.dumbskaters<-glm(perclessthanhs.15 ~ skateparks, family = "binomial", data=trial)
+logm.psychdrop<-glm(perclessthanhs.15~psych.st+psych.lt, family = "binomial",data =trial)
+logm.alldrop<- glm(perclessthanhs.15~., family = "binomial",data = trial)
+stargazer(logm.dumbskaters, logm.psychdrop, logm.alldrop, no.space = TRUE)
 #############
 
 
